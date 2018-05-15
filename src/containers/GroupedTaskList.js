@@ -4,7 +4,9 @@ import { deleteTask } from '../actions/taskActions'
 
 export const CATEGORY = {
   TODO : 'TODO',
+  ONHOLD: 'ONHOLD',
   INPROGRESS : 'INPROGRESS',
+  TESTING: 'TESTING',
   DONE : 'DONE'
 }
 
@@ -18,6 +20,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+  dispatch: dispatch,
   onDeleteTask: id => dispatch(deleteTask(id))
 })
 

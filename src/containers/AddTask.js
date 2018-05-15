@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTask } from '../actions/taskActions'
+import { CATEGORY } from '../containers/GroupedTaskList'
 
 const AddTask = ({ dispatch }) => {
   let nameInput = React.createRef();
@@ -18,9 +19,9 @@ const AddTask = ({ dispatch }) => {
       <input type="text" ref={descriptionInput}/>
       <label>Status: </label>
       <select ref={selectInput}>
-        <option>TODO</option>
-        <option>INPROGRESS</option>
-        <option>DONE</option>
+        {Object.keys(CATEGORY).map(key =>
+          <option key={key}>{CATEGORY[key]}</option>
+        )}
       </select>
       <button
         onClick={(e) => {

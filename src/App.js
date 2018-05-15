@@ -5,10 +5,9 @@ import AddTask from './containers/AddTask'
 
 const App = () => (
   <div className="container">
-    <GroupedTaskList category={ CATEGORY.TODO }/>
-    <GroupedTaskList category={ CATEGORY.INPROGRESS }/>
-    <GroupedTaskList category={ CATEGORY.DONE }/>
-
+    { Object.keys(CATEGORY).map(key =>
+      <GroupedTaskList key={key} category={CATEGORY[key]} />
+    )}
     <AddTask />
   </div>
 )

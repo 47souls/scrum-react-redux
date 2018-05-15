@@ -2,21 +2,35 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height: 100%;
+  background: #5EB7BB;
+}
+
+h3 {
+  text-align: center;
 }
 
 .container {
   display: flex;
-  width: 700px;
+  padding: 10px;
+  margin: 10px;
   border: 1px solid #000;
+  height: 100%;
 }
 
 .grouped-task-list {
   display: inline-block;
   border: 1px solid #000;
+  background: #E9E9EB;
+  margin-right: 10px;
+  border-radius: 5px;
+  flex: 1;
 }
 
 .task {
-  border: 1px solid #000;
+  margin: 7px;
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 .input-from {

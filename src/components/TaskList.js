@@ -4,13 +4,14 @@ import PropTypes from 'prop-types'
 // Components
 import Task from './Task'
 
-const TaskList = ({ tasks, category, onDeleteTask }) => (
+const TaskList = ({ tasks, dispatch, category, onDeleteTask, onChangeCategory }) => (
   <div className="grouped-task-list">
-    { 'Tasks from category: ' + category }
+    <h3>{category}</h3>
     { tasks.map(task =>
       <Task
         key={ task.id }
         task={ task }
+        dispatch= { dispatch }
         onDeleteTask={() => onDeleteTask(task.id)}
       />
     )}

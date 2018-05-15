@@ -1,4 +1,4 @@
-import { ACTION_ADD_TASK, ACTION_DELETE_TASK } from './types'
+import { ACTION_ADD_TASK, ACTION_DELETE_TASK, ACTION_CHANGE_CATEGORY } from './types'
 
 export const addTask = task => ({
   type: ACTION_ADD_TASK,
@@ -11,4 +11,9 @@ export const addTask = task => ({
 export const deleteTask = id => ({
   type: ACTION_DELETE_TASK,
   id: id
+})
+
+export const changeTaskCategory = (task) => ({
+  type: ACTION_CHANGE_CATEGORY,
+  task: task
 })

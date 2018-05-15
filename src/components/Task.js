@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Task = ({ task, onDeleteTask }) => (
+import { CATEGORY } from '../containers/GroupedTaskList'
+import { changeTaskCategory } from '../actions/taskActions'
+
+const Task = ({ task, dispatch, onDeleteTask }) => (
   <div className="task">
     {'This task has name: ' + task.name }
     <br />
@@ -11,6 +14,17 @@ const Task = ({ task, onDeleteTask }) => (
       onClick={onDeleteTask}
     >Delete
     </button>
+    <select
+      defaultValue={task.category}
+      onChange={(e) => dispatch(changeTaskCategory({
+        ...task,
+        category: e.target.value
+      }))}
+    >
+      {Object.keys(CATEGORY).map(key =>
+        <option key={key}>{CATEGORY[key]}</option>
+      )}
+    </select>
   </div>
 )
 
