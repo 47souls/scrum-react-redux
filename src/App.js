@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-// Components
-import TaskList from './components/TaskList'
-
+import GroupedTaskList, { CATEGORY } from './containers/GroupedTaskList'
+import AddTask from './containers/AddTask'
 
 const App = () => (
-  <TaskList />
+  <div className="container">
+    <GroupedTaskList category={ CATEGORY.TODO }/>
+    <GroupedTaskList category={ CATEGORY.INPROGRESS }/>
+    <GroupedTaskList category={ CATEGORY.DONE }/>
+
+    <AddTask />
+  </div>
 )
 
 export default App;

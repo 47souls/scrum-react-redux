@@ -4,12 +4,14 @@ import PropTypes from 'prop-types'
 // Components
 import Task from './Task'
 
-const TaskList = ( tasks ) => (
-  <div>
+const TaskList = ({ tasks, category, onDeleteTask }) => (
+  <div className="grouped-task-list">
+    { 'Tasks from category: ' + category }
     { tasks.map(task =>
       <Task
         key={ task.id }
         task={ task }
+        onDeleteTask={() => onDeleteTask(task.id)}
       />
     )}
   </div>
@@ -18,12 +20,13 @@ const TaskList = ( tasks ) => (
 TaskList.propType = {
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
-      status: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired
     })
   ).isRequired,
-  type: PropTypes.string.isRequired
+  category: PropTypes.string.isRequired
 }
 
 export default TaskList
