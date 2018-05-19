@@ -14,7 +14,8 @@ const TaskList = ({ tasks, dispatch, category, onDeleteTask, onChangeCategory })
         dispatch= { dispatch }
         onDeleteTask={() => onDeleteTask(task.id)}
       />
-    )}
+      )
+    }
   </div>
 )
 

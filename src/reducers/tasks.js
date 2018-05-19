@@ -83,7 +83,7 @@ const tasks = (state = initialState, action) => {
           id: action.task.id,
           name: action.task.name,
           description: action.task.description,
-          category: action.task.category
+          category: action.task.category  
         }
       ]
     default:

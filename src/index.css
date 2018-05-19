@@ -36,3 +36,9 @@ h3 {
 .input-from {
   width: 300px;
 }
+
+.active-button {
+  color: white;
+  background: black;
+  border: 1px solid green;
+}
