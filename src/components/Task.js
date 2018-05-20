@@ -16,7 +16,7 @@ const Task = ({ task, dispatch, onDeleteTask }) => (
     </button>
     <select
       defaultValue={task.category}
-      onChange={(e) => dispatch(changeTaskCategory({
+      onChange={e => dispatch(changeTaskCategory({
         ...task,
         category: e.target.value
       }))}
@@ -33,7 +33,8 @@ Task.propTypes = {
     id: PropTypes.number.isRequired,
     category: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string.isRequired,
+    teamId: PropTypes.number.isRequired
   }).isRequired
 }
 

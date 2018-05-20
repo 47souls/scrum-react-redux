@@ -1,6 +1,4 @@
-import { ACTION_ACTIVE_TEAM } from '../actions/types'
-
-let initialId = 0
+let initialId = 1
 
 const initialState = [
   {
@@ -22,11 +20,6 @@ const initialState = [
 
 const teams = (state = initialState, action) => {
   switch (action.type) {
-    case ACTION_ACTIVE_TEAM:
-      return [
-        ...state.filter(item => item.id === action.team.id).map(item => ({ ...item, active: true})),
-        ...state.filter(item => item.id !== action.team.id).map(item => ({ ...item, active: false}))
-      ].sort((item1, item2) => item1.id - item2.id)
 
     default:
       return state

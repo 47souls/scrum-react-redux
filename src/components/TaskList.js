@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 // Components
 import Task from './Task'
 
-const TaskList = ({ tasks, dispatch, category, onDeleteTask, onChangeCategory }) => (
+const TaskList = ({ tasks, dispatch, category, onDeleteTask }) => (
   <div className="grouped-task-list">
     <h3>{category}</h3>
     { tasks.map(task =>
@@ -25,7 +25,8 @@ TaskList.propType = {
       id: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
+      description: PropTypes.string.isRequired,
+      teamId: PropTypes.number.isRequired
     })
   ).isRequired,
   category: PropTypes.string.isRequired

@@ -1,6 +1,6 @@
 import { ACTION_ACTIVE_TEAM } from './types'
 
-export const activeTeam = team => ({
+export const activeTeam = id => ({
   type: ACTION_ACTIVE_TEAM,
-  team: team
+  id: id
 })

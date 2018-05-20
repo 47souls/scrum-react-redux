@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addTask } from '../actions/taskActions'
 import { CATEGORY } from '../containers/GroupedTaskList'
 
-const AddTask = ({ dispatch }) => {
+const AddTask = ({ dispatch, activeTeamId }) => {
   let nameInput = React.createRef();
   let descriptionInput = React.createRef();
   let selectInput = React.createRef();
@@ -24,12 +24,13 @@ const AddTask = ({ dispatch }) => {
         )}
       </select>
       <button
-        onClick={(e) => {
+        onClick={e => {
           let taskToAdd = {
             id: id++,
             name: nameInput.current.value,
             description: descriptionInput.current.value,
-            category: selectInput.current.value
+            category: selectInput.current.value,
+            teamId: activeTeamId
           };
           dispatch(addTask(taskToAdd))}}
       >Add</button>
@@ -37,4 +38,10 @@ const AddTask = ({ dispatch }) => {
   )
 }
 
-export default connect()(AddTask);
+const mapStateToProps = state => ({
+  activeTeamId: state.activeTeam
+})
+
+export default connect(
+  mapStateToProps
+)(AddTask);

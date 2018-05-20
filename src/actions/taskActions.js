@@ -5,7 +5,8 @@ export const addTask = task => ({
   id: task.id,
   name: task.name,
   description: task.description,
-  category: task.category
+  category: task.category,
+  teamId: task.teamId
 })
 
 export const deleteTask = id => ({
@@ -13,7 +14,7 @@ export const deleteTask = id => ({
   id: id
 })
 
-export const changeTaskCategory = (task) => ({
+export const changeTaskCategory = task => ({
   type: ACTION_CHANGE_CATEGORY,
   task: task
 })
