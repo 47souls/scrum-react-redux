@@ -11,18 +11,16 @@ export const CATEGORY = {
 }
 
 // Selectors
-const getTasksForTeam = (teamId, tasks) => {
-  return tasks.filter(task => task.teamId === teamId);
-}
+const getTasksForTeam = (teamId, tasks) => tasks.filter(task => task.teamId === teamId)
 
-const getTasksFromCategory = (activeTeamId, tasks, category) => {
-  return getTasksForTeam(activeTeamId, tasks).filter(task => task.category === category);
-}
+const getTasksForActiveUser = (activeUserId, tasks) => tasks.filter(task => task.userId === activeUserId)
+
+const getTasksFromCategory = (activeTeamId, tasks, category) => getTasksForTeam(activeTeamId, tasks).filter(task => task.category === category)
 
 // End selectors
 
 const mapStateToProps = (state, ownProps) => ({
-  tasks: getTasksFromCategory(state.activeTeam, state.tasks, ownProps.category)
+  tasks: getTasksFromCategory(state.activeTeamId, state.tasks, ownProps.category)
 })
 
 const mapDispatchToProps = dispatch => ({

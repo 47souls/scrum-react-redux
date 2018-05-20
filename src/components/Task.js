@@ -34,7 +34,8 @@ Task.propTypes = {
     category: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    teamId: PropTypes.number.isRequired
+    teamId: PropTypes.number.isRequired,
+    userId: PropTypes.number
   }).isRequired
 }
 

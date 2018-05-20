@@ -42,3 +42,7 @@ h3 {
   background: black;
   border: 1px solid green;
 }
+
+.crossed {
+  text-decoration: line-through;
+}

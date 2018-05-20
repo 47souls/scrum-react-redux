@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import TeamButton from '../components/TeamButton'
+
 import { activeTeam, nonActiveTeam } from '../actions/teamsActions'
 
 const TeamsFilter = ({ activeTeamId, teams, onTeamSelect }) => (
@@ -19,17 +21,8 @@ const TeamsFilter = ({ activeTeamId, teams, onTeamSelect }) => (
   </div>
 )
 
-const TeamButton = ({ team, activeTeamId, onTeamSelect }) => (
-  <button
-    className={team.id === activeTeamId ? 'active-button': null}
-    onClick={() => onTeamSelect(team.id, team.id === activeTeamId)}
-  >
-    {team.name}
-  </button>
-)
-
 const mapStateToProps = state => ({
-  activeTeamId: state.activeTeam,
+  activeTeamId: state.activeTeamId,
   teams: state.teams
 })
 

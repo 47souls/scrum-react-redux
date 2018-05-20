@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux'
+import activeTeamId from './activeTeamId'
+import activeUserId from './activeUserId'
 import tasks from './tasks'
 import teams from './teams'
-import activeTeam from './activeTeam'
+import users from './users'
 
 export default combineReducers({
-  activeTeam,
+  activeTeamId,
+  activeUserId,
   teams,
-  tasks
+  tasks,
+  users
 })

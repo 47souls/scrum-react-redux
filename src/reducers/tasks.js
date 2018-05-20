@@ -9,63 +9,72 @@ const initialState = [
     category: CATEGORY.TODO,
     name: 'Complete some task',
     description: 'There is a minor thing to be done',
-    teamId: 1
+    teamId: 1,
+    userId: 2
   },
   {
     id: initialId++,
     category: CATEGORY.TODO,
     name: 'Complete some task 2',
     description: 'There is a minor thing to be done 2',
-    teamId: 2
+    teamId: 2,
+    userId: 2
   },
   {
     id: initialId++,
     category: CATEGORY.TODO,
     name: 'Complete some task 2',
     description: 'There is a minor thing to be done 2',
-    teamId: 2
+    teamId: 2,
+    userId: 2
   },
   {
     id: initialId++,
     category: CATEGORY.INPROGRESS,
     name: 'That task is inprogress',
     description: 'There is a minor thing to be done',
-    teamId: 1
+    teamId: 1,
+    userId: 2
   },
   {
     id: initialId++,
     category: CATEGORY.DONE,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
-    teamId: 3
+    teamId: 3,
+    userId: 1
   },
   {
     id: initialId++,
     category: CATEGORY.TESTING,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
-    teamId: 3
+    teamId: 3,
+    userId: 1
   },
   {
     id: initialId++,
     category: CATEGORY.TESTING,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
-    teamId: 1
+    teamId: 1,
+    userId: 1
   },
   {
     id: initialId++,
     category: CATEGORY.ONHOLD,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
-    teamId: 1
+    teamId: 1,
+    userId: 1
   },
   {
     id: initialId++,
     category: CATEGORY.ONHOLD,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
-    teamId: 2
+    teamId: 2,
+    userId: 2
   }
 ]
 
