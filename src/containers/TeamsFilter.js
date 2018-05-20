@@ -1,20 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { activeTeam } from '../actions/teamsActions'
+import { activeTeam, nonActiveTeam } from '../actions/teamsActions'
 
 const TeamsFilter = ({ activeTeamId, teams, onTeamSelect }) => (
   <div>
-    { teams.map( team =>
-      <button
-        key={team.id}
-        onClick={() => onTeamSelect(team.id)}
-        className={activeTeamId === team.id ? "active-button" : null}
-      >
-        {team.name}
-      </button>
+    { teams.map( team => {
+      return (
+        <TeamButton
+          key={team.id}
+          team={team}
+          activeTeamId={activeTeamId}
+          onTeamSelect={onTeamSelect}
+        />
+      )
+    }
     )}
   </div>
+)
+
+const TeamButton = ({ team, activeTeamId, onTeamSelect }) => (
+  <button
+    className={team.id === activeTeamId ? 'active-button': null}
+    onClick={() => onTeamSelect(team.id, team.id === activeTeamId)}
+  >
+    {team.name}
+  </button>
 )
 
 const mapStateToProps = state => ({
@@ -23,7 +34,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onTeamSelect: id => dispatch(activeTeam(id))
+  onTeamSelect: (id, isActive) => isActive ? dispatch(nonActiveTeam(id)) : dispatch(activeTeam(id))
 })
 
 export default connect(

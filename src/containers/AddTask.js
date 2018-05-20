@@ -33,6 +33,7 @@ const AddTask = ({ dispatch, activeTeamId }) => {
             teamId: activeTeamId
           };
           dispatch(addTask(taskToAdd))}}
+        disabled={activeTeamId === 0 }
       >Add</button>
     </div>
   )
