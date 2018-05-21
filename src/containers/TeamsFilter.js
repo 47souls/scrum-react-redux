@@ -22,8 +22,8 @@ const TeamsFilter = ({ activeTeamId, teams, onTeamSelect }) => (
 )
 
 const mapStateToProps = state => ({
-  activeTeamId: state.activeTeamId,
-  teams: state.teams
+  activeTeamId: state.teams.activeTeamId,
+  teams: state.teams.allTeams
 })
 
 const mapDispatchToProps = dispatch => ({

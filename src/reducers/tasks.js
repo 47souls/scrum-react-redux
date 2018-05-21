@@ -1,11 +1,13 @@
 import { ACTION_ADD_TASK, ACTION_DELETE_TASK, ACTION_CHANGE_CATEGORY } from '../actions/types'
 import { CATEGORY } from '../containers/GroupedTaskList'
 
-let initialId = 0;
+import { combineReducers } from 'redux'
 
-const initialState = [
+let initialTaskId = 0;
+
+const allTasksInitialState = [
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.TODO,
     name: 'Complete some task',
     description: 'There is a minor thing to be done',
@@ -13,7 +15,7 @@ const initialState = [
     userId: 2
   },
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.TODO,
     name: 'Complete some task 2',
     description: 'There is a minor thing to be done 2',
@@ -21,7 +23,7 @@ const initialState = [
     userId: 2
   },
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.TODO,
     name: 'Complete some task 2',
     description: 'There is a minor thing to be done 2',
@@ -29,7 +31,7 @@ const initialState = [
     userId: 2
   },
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.INPROGRESS,
     name: 'That task is inprogress',
     description: 'There is a minor thing to be done',
@@ -37,7 +39,7 @@ const initialState = [
     userId: 2
   },
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.DONE,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
@@ -45,7 +47,7 @@ const initialState = [
     userId: 1
   },
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.TESTING,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
@@ -53,7 +55,7 @@ const initialState = [
     userId: 1
   },
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.TESTING,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
@@ -61,7 +63,7 @@ const initialState = [
     userId: 1
   },
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.ONHOLD,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
@@ -69,7 +71,7 @@ const initialState = [
     userId: 1
   },
   {
-    id: initialId++,
+    id: initialTaskId++,
     category: CATEGORY.ONHOLD,
     name: 'This task is already done',
     description: 'There is a minor thing to be done',
@@ -78,7 +80,9 @@ const initialState = [
   }
 ]
 
-const tasks = (state = initialState, action) => {
+const visibleTasksInitialState = []
+
+const allTasks = (state = allTasksInitialState, action) => {
   switch(action.type) {
     case ACTION_ADD_TASK:
       return [
@@ -111,4 +115,15 @@ const tasks = (state = initialState, action) => {
   }
 }
 
-export default tasks
+const visibleTasks = (state = visibleTasksInitialState, action) => {
+  switch(action.type) {
+
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({
+  allTasks,
+  visibleTasks
+})

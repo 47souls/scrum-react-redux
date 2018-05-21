@@ -1,31 +1,34 @@
-// import {} from './actions/types'
+import { ACTION_ACTIVE_USER } from '../actions/types'
 
-let initialId = 1;
+import { combineReducers } from 'redux'
 
-const initialUsersState = [
+let initialActiveUserId = 0
+let initialUsersId = 1;
+
+const initialAllUsersState = [
   {
-    id: initialId++,
+    id: initialUsersId++,
     username: 'Nick Holly',
     teamId: 1
   },
   {
-    id: initialId++,
+    id: initialUsersId++,
     username: 'Patric Nicolson',
     teamId: 2
   },
   {
-    id: initialId++,
+    id: initialUsersId++,
     username: 'Michael Ticker',
     teamId: 2
   },
   {
-    id: initialId++,
+    id: initialUsersId++,
     username: 'Steve Stevon',
     teamId: 1
   }
 ]
 
-const users = (state = initialUsersState, action) => {
+const allUsers = (state = initialAllUsersState, action) => {
   switch (action.type) {
 
     default:
@@ -33,4 +36,16 @@ const users = (state = initialUsersState, action) => {
   }
 }
 
-export default users;
+const activeUserId = (state = initialActiveUserId, action) => {
+  switch (action.type) {
+    case ACTION_ACTIVE_USER:
+      return action.id
+    default:
+      return state
+  }
+}
+
+export default combineReducers({
+  allUsers,
+  activeUserId
+})

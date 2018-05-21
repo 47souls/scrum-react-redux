@@ -15,12 +15,14 @@ const getTasksForTeam = (teamId, tasks) => tasks.filter(task => task.teamId === 
 
 const getTasksForActiveUser = (activeUserId, tasks) => tasks.filter(task => task.userId === activeUserId)
 
-const getTasksFromCategory = (activeTeamId, tasks, category) => getTasksForTeam(activeTeamId, tasks).filter(task => task.category === category)
+const getTasksFromCategory = (activeTeamId, tasks, category) =>
+        getTasksForTeam(activeTeamId, tasks)
+        .filter(task => task.category === category)
 
 // End selectors
 
 const mapStateToProps = (state, ownProps) => ({
-  tasks: getTasksFromCategory(state.activeTeamId, state.tasks, ownProps.category)
+  tasks: getTasksFromCategory(state.teams.activeTeamId, state.tasks.allTasks, ownProps.category)
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -26,7 +26,7 @@ UsersList.propTypes = {
 const getUsersByTeam = (users, teamId) => users.filter(user => user.teamId === teamId)
 
 const mapStateToProps = state => ({
-  users: getUsersByTeam(state.users, state.activeTeamId),
+  users: getUsersByTeam(state.users.allUsers, state.activeTeamId),
   activeUserId: state.activeUserId
 })
 
